@@ -15,10 +15,13 @@ public class UserRegistration
 		String email = sc.nextLine();
 		System.out.println("Enter mobile number: ");
 		String phno = sc.nextLine();
+		System.out.println("Enter password: ");
+		String pswd = sc.nextLine();
 		validateFirstName(firstname);
 		validateLastName(lastname);
 		validateEmail(email);
 		validateMobileNumber(phno);
+		validatePassword(pswd);
 	}
 	static void validateFirstName(String firstname)
 	{
@@ -59,5 +62,15 @@ public class UserRegistration
 			System.out.println("Valid mobile number");
 		else
 			System.out.println("Invalid mobile number");
+	}
+	static void validatePassword(String pswd)
+	{
+		String regexPattern = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
+		Pattern p = Pattern.compile(regexPattern);
+		Matcher m = p.matcher(pswd);
+		if(m.matches())
+			System.out.println("Valid password");
+		else
+			System.out.println("Invalid password");
 	}
 }
