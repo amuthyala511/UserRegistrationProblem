@@ -22,6 +22,7 @@ public class UserRegistration
 		validateEmail(email);
 		validateMobileNumber(phno);
 		validatePassword(pswd);
+		System.out.println("All email samples provided are validated");
 	}
 	static void validateFirstName(String firstname)
 	{
