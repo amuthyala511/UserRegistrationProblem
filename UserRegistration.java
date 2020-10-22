@@ -13,9 +13,12 @@ public class UserRegistration
 		String lastname = sc.nextLine();
 		System.out.println("Enter e-mail address: ");
 		String email = sc.nextLine();
+		System.out.println("Enter mobile number: ");
+		String phno = sc.nextLine();
 		validateFirstName(firstname);
 		validateLastName(lastname);
 		validateEmail(email);
+		validateMobileNumber(phno);
 	}
 	static void validateFirstName(String firstname)
 	{
@@ -46,5 +49,15 @@ public class UserRegistration
 			System.out.println("Valid e-mail address");
 		else
 			System.out.println("Invalid e-mail address");
+	}
+	static void validateMobileNumber(String phno)
+	{
+		String regexPattern = "^(91){1}[ ][6-9]{1}[0-9]{9,9}$";
+		Pattern p = Pattern.compile(regexPattern);
+		Matcher m = p.matcher(phno);
+		if(m.matches())
+			System.out.println("Valid mobile number");
+		else
+			System.out.println("Invalid mobile number");
 	}
 }
